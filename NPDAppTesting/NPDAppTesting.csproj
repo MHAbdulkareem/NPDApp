@@ -10,7 +10,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NPDAppTesting</RootNamespace>
     <AssemblyName>NPDAppTesting</AssemblyName>
+<<<<<<< HEAD
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+=======
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
@@ -20,7 +24,10 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+<<<<<<< HEAD
     <TargetFrameworkProfile />
+=======
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,18 +57,25 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="ClientManagerTest.cs" />
+=======
+    <Compile Include="UnitTest1.cs" />
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <ProjectReference Include="..\NPDApp\NPDApp.csproj">
       <Project>{e8c09b9c-575b-4a32-a4d3-a9ee8d7c8386}</Project>
       <Name>NPDApp</Name>
     </ProjectReference>
   </ItemGroup>
+=======
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

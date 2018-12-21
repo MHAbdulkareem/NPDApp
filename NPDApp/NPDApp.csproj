@@ -8,7 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>NPDApp</RootNamespace>
     <AssemblyName>NPDApp</AssemblyName>
+<<<<<<< HEAD
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+=======
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -27,7 +31,10 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+<<<<<<< HEAD
     <TargetFrameworkProfile />
+=======
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -71,7 +78,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="controllers\ClientManager.cs" />
+=======
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
     <Compile Include="controllers\LoginController.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -79,18 +89,22 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="DataAccess\ClientRepository.cs" />
     <Compile Include="DataAccess\IClientRepository.cs" />
     <Compile Include="DataAccess\IJobRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
     <Compile Include="DataAccess\IStaffRepository.cs" />
     <Compile Include="DataAccess\NDPAppContext.cs" />
+=======
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\201812202125170_FirstCreate.cs" />
     <Compile Include="Migrations\201812202125170_FirstCreate.Designer.cs">
       <DependentUpon>201812202125170_FirstCreate.cs</DependentUpon>
@@ -101,6 +115,8 @@
     <Compile Include="models\Machine.cs" />
     <Compile Include="models\Staff.cs" />
     <Compile Include="models\Timeline.cs" />
+=======
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="services\ILoginService.cs" />
@@ -110,9 +126,12 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\201812202125170_FirstCreate.resx">
       <DependentUpon>201812202125170_FirstCreate.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -121,7 +140,10 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+<<<<<<< HEAD
       <DesignTime>True</DesignTime>
+=======
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -135,9 +157,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+=======
+    <None Include="App.config" />
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -151,6 +177,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup />
+=======
+  <ItemGroup>
+    <Folder Include="models\" />
+  </ItemGroup>
+>>>>>>> a1c9da869bff6b97b833d43950a62cf638ef7e8b
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
