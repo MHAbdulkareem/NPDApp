@@ -38,7 +38,9 @@
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // header
@@ -51,7 +53,6 @@
             this.header.TabIndex = 1;
             this.header.Text = "Newcastle Production Diagnostics";
             this.header.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.header.Click += new System.EventHandler(this.header_Click);
             // 
             // menuStrip1
             // 
@@ -77,7 +78,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // jobToolStripMenuItem
@@ -92,13 +93,13 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.newToolStripMenuItem.Text = "New";
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // customerToolStripMenuItem
@@ -113,20 +114,30 @@
             // newToolStripMenuItem1
             // 
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(133, 30);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(252, 30);
             this.newToolStripMenuItem1.Text = "New";
             // 
             // viewToolStripMenuItem1
             // 
             this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
-            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(133, 30);
+            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(252, 30);
             this.viewToolStripMenuItem1.Text = "View";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 136);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(873, 512);
+            this.dataGridView1.TabIndex = 3;
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 489);
+            this.ClientSize = new System.Drawing.Size(898, 660);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.header);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -134,6 +145,7 @@
             this.Text = "Dashboard - Newcastle Production Diagnostics";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +163,6 @@
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

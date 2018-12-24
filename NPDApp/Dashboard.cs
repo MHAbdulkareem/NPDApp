@@ -16,10 +16,6 @@ namespace NPDApp
         {
             InitializeComponent();
         }
-
-        private void header_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

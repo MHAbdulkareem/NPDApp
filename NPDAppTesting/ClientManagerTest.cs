@@ -22,11 +22,7 @@ namespace NPDAppTesting
         {
             Assert.AreEqual(0, clientManager.Clients.Count);
         }
-
-
-
-
-
+        
         class MockClientRepository : IClientRepository
         {
             List<Client> clients;
