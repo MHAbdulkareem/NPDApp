@@ -16,6 +16,11 @@ namespace NPDApp
         {
             InitializeComponent();
         }
-        
+
+        private void newToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClientForm cform = new ClientForm();
+            cform.ShowDialog(this);
+        }
     }
 }
