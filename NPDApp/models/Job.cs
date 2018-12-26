@@ -10,7 +10,7 @@ namespace NPDApp.models
 {
     public enum JobUrgency
     {
-        NU0 = 90, NU1 = 40, UR2 = 14, UR3 = 7, UR4 = 3, UR5 = 1
+        NU0 = 90, NU1 = 40, NU2 = 40, UR2 = 14, UR3 = 7, UR4 = 3, UR5 = 1
     }
     public class Job
     {

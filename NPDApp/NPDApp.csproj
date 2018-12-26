@@ -72,6 +72,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="controllers\ClientManager.cs" />
     <Compile Include="controllers\JobScheduler.cs" />
     <Compile Include="DataAccess\GenericRepository.cs" />
@@ -92,6 +95,7 @@
     <Compile Include="DataAccess\IClientRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
     <Compile Include="DataAccess\NDPAppContext.cs" />
+    <Compile Include="DataAccess\RepositoryFactory.cs" />
     <Compile Include="JobForm.cs">
       <SubType>Form</SubType>
     </Compile>
