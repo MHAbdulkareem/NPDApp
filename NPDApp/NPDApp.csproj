@@ -119,6 +119,11 @@
     <Compile Include="models\Machine.cs" />
     <Compile Include="models\Staff.cs" />
     <Compile Include="models\Timeline.cs" />
+    <Compile Include="NPDAppdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NPDAppdbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="services\ILoginService.cs" />
@@ -147,6 +152,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="NPDAppdbDataSet.xsc">
+      <DependentUpon>NPDAppdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NPDAppdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NPDAppdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NPDAppdbDataSet.xss">
+      <DependentUpon>NPDAppdbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
