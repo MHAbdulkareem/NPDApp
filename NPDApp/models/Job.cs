@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace NPDApp.models
 {
-
     public enum JobUrgency
     {
         NU0, NU1, NU2, UR2, UR3, UR4, UR5

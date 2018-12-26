@@ -22,5 +22,11 @@ namespace NPDApp
             ClientForm cform = new ClientForm();
             cform.ShowDialog(this);
         }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JobForm jobForm = new JobForm();
+            jobForm.ShowDialog(this);
+        }
     }
 }

@@ -40,6 +40,7 @@
             this.clientEmailTxt = new System.Windows.Forms.TextBox();
             this.clearBtn = new System.Windows.Forms.Button();
             this.submitBtn = new System.Windows.Forms.Button();
+            this.agreeCheckBox = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,11 +64,10 @@
             this.flowLayoutPanel1.Controls.Add(this.clientPhoneTxt);
             this.flowLayoutPanel1.Controls.Add(this.label5);
             this.flowLayoutPanel1.Controls.Add(this.clientEmailTxt);
-            this.flowLayoutPanel1.Controls.Add(this.clearBtn);
-            this.flowLayoutPanel1.Controls.Add(this.submitBtn);
+            this.flowLayoutPanel1.Controls.Add(this.agreeCheckBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 79);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(418, 361);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(418, 300);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // label2
@@ -140,7 +140,7 @@
             // 
             // clearBtn
             // 
-            this.clearBtn.Location = new System.Drawing.Point(3, 247);
+            this.clearBtn.Location = new System.Drawing.Point(20, 400);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(75, 40);
             this.clearBtn.TabIndex = 8;
@@ -151,7 +151,7 @@
             // submitBtn
             // 
             this.submitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitBtn.Location = new System.Drawing.Point(84, 247);
+            this.submitBtn.Location = new System.Drawing.Point(104, 400);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(88, 40);
             this.submitBtn.TabIndex = 9;
@@ -159,13 +159,27 @@
             this.submitBtn.UseVisualStyleBackColor = true;
             this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
+            // agreeCheckBox
+            // 
+            this.agreeCheckBox.AutoSize = true;
+            this.agreeCheckBox.Checked = true;
+            this.agreeCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.agreeCheckBox.Location = new System.Drawing.Point(3, 247);
+            this.agreeCheckBox.Name = "agreeCheckBox";
+            this.agreeCheckBox.Size = new System.Drawing.Size(347, 24);
+            this.agreeCheckBox.TabIndex = 8;
+            this.agreeCheckBox.Text = "Click to agree to term and conditions of NPD";
+            this.agreeCheckBox.UseVisualStyleBackColor = true;
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 452);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.clearBtn);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ClientForm";
@@ -192,5 +206,6 @@
         private System.Windows.Forms.TextBox clientEmailTxt;
         private System.Windows.Forms.Button clearBtn;
         private System.Windows.Forms.Button submitBtn;
+        private System.Windows.Forms.CheckBox agreeCheckBox;
     }
 }
