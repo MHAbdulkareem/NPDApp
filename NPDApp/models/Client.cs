@@ -9,8 +9,12 @@ namespace NPDApp.models
 {
     public class Client
     {
+        public Client()
+        {
+            this.Jobs = new List<Job>();
+        }
         [Key]
-        public int ClientID { get; set; }
+        public int ID { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -23,5 +27,7 @@ namespace NPDApp.models
 
         [EmailAddress]
         public string Email { get; set; }
+
+        public virtual ICollection<Job> Jobs { get; set; }
     }
 }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace NPDApp.models
 {
-    class Staff
+    public class Staff
     {
         [Key]
-        public int StaffID { get; set; }
+        public int ID { get; set; }
         
         [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "First name must be between 2 and 50 characters.")]
         public string FirstName { get; set; }

@@ -1,92 +1,48 @@
-﻿using System;
-using NPDApp.models;
+﻿using NPDApp.models;
 using NPDApp.DataAccess;
-using NPDApp.controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace NPDAppTesting
 {
     [TestClass]
-    public class ClientManagerTest
+    public class ClientManagerTest : BaseTest
     {
-        private ClientManager clientManager;
+        private IRepository<Client> clientRepository;
+
         [TestInitialize]
         public void SetUp()
         {
-            clientManager = new ClientManager(new MockClientRepository());
+            base.SetUp();
+            clientRepository = repoFactory.ClientRepository;
         }
 
         [TestMethod]
         public void TestClientsWithEmptyRepository()
         {
-            Assert.AreEqual(0, clientManager.Clients.Count);
+            Assert.AreEqual(0, clientRepository.Get().Count());
         }
 
-
-
-
-
-        class MockClientRepository : IClientRepository
+        [TestMethod]
+        public void TestAddClient()
         {
-            List<Client> clients;
+            // Get the total number of clients before insertion
+            int currentNumberOfClients = clientRepository.Get().Count();
 
-            public MockClientRepository()
+            // Create a new client
+            var newClient = new Client
             {
-                clients = new List<Client>();
-                //InitialiseList();
-            }
+                Name = "Robertson Stephens",
+                Address = "74  Whitby Road, DENWICK, NE66 5QP",
+                PhoneNumber = "07016231506",
+                Email = "qdojzqeppqf@iffymedia.com"
+            };
 
-            public void InitialiseList()
-            {
-                clients.AddRange(new List<Client>
-                {
-                    new Client {Name = "Johnson Corporation", Address = "138  East Street, MANOROWEN, SA65 2UZ", PhoneNumber = "07865172169"},
-                    new Client {Name = "AvaRParson", Address = "120  Bury Rd, HALVERGATE, NR13 4WG", PhoneNumber = "07885388159"},
-                    new Client {Name = "JaniceTMetheny", Address = "106  Wrexham Rd, EYTON, HR6 9UJ", PhoneNumber = "07983556413"},
-                    new Client {Name = "Ruecker-Gislason", Address = "68  Lamphey Road, THE EAVES, GL15 7TE", PhoneNumber = "07847975874"},
-                    new Client {Name = "Iselectrics", Address = "16  Mill Lane, CORPUSTY, NR11 7HJ", PhoneNumber = "07702466646"}
-                });
-            }
-            public IEnumerable<Client> GetClients()
-            {
-                return clients;
-            }
+            // Add the new client to the repository
+            clientRepository.Insert(newClient);
 
-            public Client GetClientByID(int clientID)
-            {
-                return clients.Find(c => c.ClientID == clientID);
-            }
-
-            public void InsertClient(Client client)
-            {
-                clients.Add(client);
-            }
-
-            public void DeleteClient(int clientID)
-            {
-                var client = GetClientByID(clientID);
-
-                clients.Remove(client);
-            }
-
-            public void UpdateClient(Client client)
-            {
-                var uClient = clients.Find(c => c.ClientID == client.ClientID);
-
-                if(uClient != null)
-                {
-                    uClient.Name = client.Name;
-                    uClient.Address = client.Address;
-                    uClient.PhoneNumber = client.PhoneNumber;
-                    uClient.Email = client.Email;
-                }
-            }
-
-            public void save()
-            {
-                //
-            }
+            // check if the total client count has increased 
+            Assert.AreEqual(currentNumberOfClients + 1, clientRepository.Get().Count());
         }
     }
 }

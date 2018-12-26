@@ -11,10 +11,15 @@ namespace NPDApp.models
     {
         STL0, STC1, MMC2, MHC3, LLC4, LLC5, LHC54
     }
-    class Machine
+    public class Machine
     {
+        public Machine()
+        {
+            Jobs = new List<Job>();
+        }
+
         [Key]
-        public int MachineID { get; set; }
+        public int ID { get; set; }
 
         public string Name { get; set; }
 

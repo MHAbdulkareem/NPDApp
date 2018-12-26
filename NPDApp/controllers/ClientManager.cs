@@ -10,42 +10,45 @@ namespace NPDApp.controllers
 {
     public class ClientManager
     {
-        private IClientRepository clientRepository;
+        private IClientRepository _clientRepository;
+
         public ClientManager()
         {
-            clientRepository = new ClientRepository();
+            _clientRepository = new ClientRepository();
         }
         public ClientManager(IClientRepository clientRepository)
         {
-            this.clientRepository = clientRepository;
+            this._clientRepository = clientRepository;
         }
 
         public List<Client> Clients
         {
-            get { return clientRepository.GetClients().ToList(); }
+            get { return _clientRepository.GetClients().ToList(); }
         }
 
         public void AddClient(string name, string address, string phoneNumber, string email)
         {
-            var newClient = new Client();
-            newClient.Name = name;
-            newClient.Address = address;
-            newClient.PhoneNumber = phoneNumber;
-            newClient.Email = email;
+            var newClient = new Client
+            {
+                Name = name,
+                Address = address,
+                PhoneNumber = phoneNumber,
+                Email = email
+            };
 
-            clientRepository.InsertClient(newClient);
+            _clientRepository.InsertClient(newClient);
         }
 
         public Client GetClient(int id)
         {
-            var foundClient = clientRepository.GetClients().Where(c => c.ClientID == id).FirstOrDefault();
+            var foundClient = _clientRepository.GetClients().Where(c => c.ID == id).FirstOrDefault();
 
             return foundClient;
         }
 
-        public void RemoveClient(int id)
+        public void RemoveClient(Client client)
         {
-            clientRepository.DeleteClient(id);
+            _clientRepository.DeleteClient(client.ID);
         }
     }
 }

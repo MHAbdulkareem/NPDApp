@@ -9,6 +9,10 @@ namespace NPDApp.DataAccess
 {
     class ClientRepository : IClientRepository
     {
+        public ClientRepository()
+        {
+
+        }
 
         public IEnumerable<models.Client> GetClients()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +11,16 @@ namespace NPDApp.models
 
     public enum JobUrgency
     {
-        NU0, NU1, NU2, UR2, UR3, UR4, UR5
+        NU0 = 90, NU1 = 40, UR2 = 14, UR3 = 7, UR4 = 3, UR5 = 1
     }
-    class Job
+    public class Job
     {
+        public Job()
+        {
+            this.Timelines = new List<Timeline>();
+        }
         [Key]
-        public int JobID { get; set; }
-
-        public int ClientID { get; set; }
-
-        public int MachineID { get; set; }
+        public int ID { get; set; }
 
         [Required]
         public string Location { get; set; }
@@ -38,9 +39,13 @@ namespace NPDApp.models
 
         public JobUrgency Urgency { get; set; }
 
+        public int ClientID { get; set; }
+        [ForeignKey("ClientID")]
         public virtual Client Client { get; set; }
 
-        public Machine Machine { get; set; }
+        public int MachineID { get; set; }
+        [ForeignKey("MachineID")]
+        public virtual Machine Machine { get; set; }
 
         public virtual ICollection<Timeline> Timelines { get; set; }
     }

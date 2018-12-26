@@ -8,32 +8,44 @@ namespace NPDApp.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Addresses",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        NumberOrName = c.String(),
+                        Street = c.String(),
+                        Town = c.String(),
+                        PostCode = c.String(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
                 "dbo.Clients",
                 c => new
                     {
-                        ClientID = c.Int(nullable: false, identity: true),
+                        ID = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false),
                         Address = c.String(nullable: false),
                         PhoneNumber = c.String(),
                         Email = c.String(),
                     })
-                .PrimaryKey(t => t.ClientID);
+                .PrimaryKey(t => t.ID);
             
             CreateTable(
                 "dbo.Jobs",
                 c => new
                     {
-                        JobID = c.Int(nullable: false, identity: true),
-                        ClientID = c.Int(nullable: false),
-                        MachineID = c.Int(nullable: false),
+                        ID = c.Int(nullable: false, identity: true),
                         Location = c.String(nullable: false),
                         Description = c.String(nullable: false),
                         LoggedDate = c.DateTime(nullable: false),
                         StartDate = c.DateTime(nullable: false),
                         EndDate = c.DateTime(nullable: false),
                         Urgency = c.Int(nullable: false),
+                        ClientID = c.Int(nullable: false),
+                        MachineID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.JobID)
+                .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.Clients", t => t.ClientID, cascadeDelete: true)
                 .ForeignKey("dbo.Machines", t => t.MachineID, cascadeDelete: true)
                 .Index(t => t.ClientID)
@@ -43,23 +55,23 @@ namespace NPDApp.Migrations
                 "dbo.Machines",
                 c => new
                     {
-                        MachineID = c.Int(nullable: false, identity: true),
+                        ID = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         Type = c.Int(nullable: false),
                         Manufacturer = c.String(nullable: false),
                     })
-                .PrimaryKey(t => t.MachineID);
+                .PrimaryKey(t => t.ID);
             
             CreateTable(
                 "dbo.Timelines",
                 c => new
                     {
-                        TimelineID = c.Int(nullable: false, identity: true),
+                        ID = c.Int(nullable: false, identity: true),
                         JobID = c.Int(nullable: false),
                         Date = c.DateTime(nullable: false),
                         Outcome = c.String(),
                     })
-                .PrimaryKey(t => t.TimelineID)
+                .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.Jobs", t => t.JobID, cascadeDelete: true)
                 .Index(t => t.JobID);
             
@@ -67,12 +79,12 @@ namespace NPDApp.Migrations
                 "dbo.Staffs",
                 c => new
                     {
-                        StaffID = c.Int(nullable: false, identity: true),
+                        ID = c.Int(nullable: false, identity: true),
                         FirstName = c.String(nullable: false, maxLength: 50),
                         LastName = c.String(maxLength: 50),
                         Role = c.String(nullable: false, maxLength: 50),
                     })
-                .PrimaryKey(t => t.StaffID);
+                .PrimaryKey(t => t.ID);
             
         }
         
@@ -89,6 +101,7 @@ namespace NPDApp.Migrations
             DropTable("dbo.Machines");
             DropTable("dbo.Jobs");
             DropTable("dbo.Clients");
+            DropTable("dbo.Addresses");
         }
     }
 }
