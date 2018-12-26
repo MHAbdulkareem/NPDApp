@@ -17,9 +17,16 @@ namespace NPDApp
             InitializeComponent();
         }
 
-        private void header_Click(object sender, EventArgs e)
+        private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            ClientForm cform = new ClientForm();
+            cform.ShowDialog(this);
+        }
 
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JobForm jobForm = new JobForm();
+            jobForm.ShowDialog(this);
         }
     }
 }
