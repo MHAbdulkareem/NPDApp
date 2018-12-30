@@ -28,6 +28,14 @@ namespace NPDApp.models
         [EmailAddress]
         public string Email { get; set; }
 
+        /*
+        [Required]
+        public bool Eula { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime RegistrationDate { get; set; }
+        */
         public virtual ICollection<Job> Jobs { get; set; }
     }
 }
