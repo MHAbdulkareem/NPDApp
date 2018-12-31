@@ -24,6 +24,18 @@ namespace NPDApp.models
         [Description("Machine Broken ~ 1 Day")]
         UR5 = 1
     }
+
+    public enum JobStatus
+    {
+        NEW,
+        PENDING,
+        ACTIVE,
+        INACTIVE,
+        DELAYED,
+        REMOTE_SOLUTION,
+        CLOSED
+    }
+
     public class Job
     {
         public Job()

@@ -45,8 +45,8 @@ namespace NPDApp
             this.jobUrgencyComboBox = new System.Windows.Forms.ComboBox();
             this.machineComboBox = new System.Windows.Forms.ComboBox();
             this.addMachineButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.submitJobButton = new System.Windows.Forms.Button();
+            this.resetButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -134,9 +134,9 @@ namespace NPDApp
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 63);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 29);
+            this.label5.Size = new System.Drawing.Size(104, 29);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Machine Type";
+            this.label5.Text = "Machine";
             // 
             // flowLayoutPanel2
             // 
@@ -185,32 +185,33 @@ namespace NPDApp
             this.addMachineButton.UseVisualStyleBackColor = true;
             this.addMachineButton.Click += new System.EventHandler(this.addMachineButton_Click);
             // 
-            // button1
+            // submitJobButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(808, 428);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 41);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.submitJobButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitJobButton.Location = new System.Drawing.Point(808, 428);
+            this.submitJobButton.Name = "submitJobButton";
+            this.submitJobButton.Size = new System.Drawing.Size(96, 41);
+            this.submitJobButton.TabIndex = 3;
+            this.submitJobButton.Text = "Submit";
+            this.submitJobButton.UseVisualStyleBackColor = true;
+            this.submitJobButton.Click += new System.EventHandler(this.submitJobButton_Click);
             // 
-            // button2
+            // resetButton
             // 
-            this.button2.Location = new System.Drawing.Point(727, 428);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 41);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Reset";
-            this.button2.UseVisualStyleBackColor = true;
+            this.resetButton.Location = new System.Drawing.Point(727, 428);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(75, 41);
+            this.resetButton.TabIndex = 4;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
             // 
             // JobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 479);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.resetButton);
+            this.Controls.Add(this.submitJobButton);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
@@ -245,7 +246,7 @@ namespace NPDApp
         private System.Windows.Forms.ComboBox jobUrgencyComboBox;
         private System.Windows.Forms.ComboBox machineComboBox;
         private System.Windows.Forms.Button addMachineButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button submitJobButton;
+        private System.Windows.Forms.Button resetButton;
     }
 }

@@ -22,10 +22,7 @@ namespace NPDApp
         private void MachineForm_Load(object sender, EventArgs e)
         {
             // Populate dropdown control with machine types
-            machineTypeComboBox.DataSource = Enum.GetNames(typeof(MachineType));
-           
-            //Not working properly
-           /*var data = Enum.GetNames(typeof(MachineType)).ToList()
+            machineTypeComboBox.DataSource = Enum.GetValues(typeof(MachineType))
                 .Cast<Enum>()
                 .Select(value => new
                 {
@@ -36,10 +33,8 @@ namespace NPDApp
                 .OrderBy(item => item.value)
                 .ToList();
 
-            machineTypeComboBox.DataSource = data;
             machineTypeComboBox.DisplayMember = "Description";
             machineTypeComboBox.ValueMember = "Value";
-            */
         }
 
         private void resetButton_Click(object sender, EventArgs e)
@@ -58,6 +53,7 @@ namespace NPDApp
         {
             try
             {
+                AddNewMachine();
                 MessageBox.Show("Record saved.");
             }
             catch (Exception ex)
@@ -72,12 +68,13 @@ namespace NPDApp
             {
                 Name = machineNameTextBox.Text,
                 Manufacturer = manufacturerTextBox.Text,
-                Type = (MachineType)Enum.Parse(typeof(MachineType), machineTypeComboBox.SelectedText)
-
+                Type = (MachineType)Enum.Parse(typeof(MachineType), machineTypeComboBox.SelectedValue.ToString())
             };
+            
             var machineRepository = repositoryFactory.MachineRepository;
             machineRepository.Insert(machine);
             repositoryFactory.Save();
         }
+
     }
 }
