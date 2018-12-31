@@ -16,15 +16,13 @@ namespace NPDApp
         public JobForm() : base()
         {
             InitializeComponent();
-            //Get Selected Enum
-            //Status status; 
-            //Enum.TryParse<Status>(cbStatus.SelectedValue.ToString(), out status);
         }
 
         private void JobForm_Load(object sender, EventArgs e)
         {
-            // Populate dropdown control with job urgency tyoes
+            // Populate dropdown control with job urgency types
             jobUrgencyComboBox.DataSource = Enum.GetNames(typeof(JobUrgency));
+
             // Populate dropdown control with machine type
             machineComboBox.DataSource = Enum.GetNames(typeof(MachineType));
 
@@ -33,6 +31,12 @@ namespace NPDApp
             clientComboBox.DataSource = clients;
             clientComboBox.DisplayMember = "Name";
             clientComboBox.ValueMember = "ID";
+        }
+
+        private void addMachineButton_Click(object sender, EventArgs e)
+        {
+            MachineForm machineForm = new MachineForm();
+            machineForm.ShowDialog(this);
         }
     }
 }
