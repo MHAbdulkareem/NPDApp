@@ -12,7 +12,7 @@ namespace NPDAppTesting
     public class JobManagerTest : BaseTest
     {
        
-        private JobScheduler jobScheduler;
+        private JobManager jobManager;
         private IRepository<Job> jobRepository;
 
         [TestInitialize]
@@ -34,7 +34,7 @@ namespace NPDAppTesting
             jobRepository = repoFactory.JobRepository;
 
             // Create a job schedular
-            jobScheduler = new JobScheduler(mockContext.Context);
+            jobManager = new JobManager(mockContext.Context);
         }
 
         [TestMethod]
@@ -45,18 +45,78 @@ namespace NPDAppTesting
             var machine = GetTestMachine(); // get a random machine
             
             // Schedule a new job
-            jobScheduler.Description = "faulty";
-            jobScheduler.Location = "66 Duckpit Lane, UPSETTLINGTON, TD15 3RS";
-            jobScheduler.Client = client;
-            jobScheduler.Machine = machine;
-            jobScheduler.Urgency = JobUrgency.NU1;
-            jobScheduler.Schedule();
+            jobManager.Description = "faulty";
+            jobManager.Location = "66 Duckpit Lane, UPSETTLINGTON, TD15 3RS";
+            jobManager.Client = client.ID;
+            jobManager.Machine = machine.ID;
+            jobManager.Urgency = JobUrgency.NU1;
+            jobManager.Register();
 
             // Get the recent logged job
-            var loggedJob = jobScheduler.GetLatestJob();
+            var loggedJob = jobManager.GetLatestJob();
 
-            // Check if the client has 
-            Assert.IsTrue(client.Jobs.Where(j => j.ID == loggedJob.ID).First() != null);
+            // Check if job is registerd to client
+            Assert.AreEqual(client.ID, loggedJob.ClientID);
+        }
+
+        [TestMethod]
+        public void TestAutomaticJobSchedule()
+        {
+            ScheduleJobs();
+
+            // Schedule a new job
+            jobManager.Description = "faulty";
+            jobManager.Location = "66 Duckpit Lane, UPSETTLINGTON, TD15 3RS";
+            jobManager.Client = 1;
+            jobManager.Machine = 1;
+            jobManager.Urgency = JobUrgency.UR5;
+            jobManager.Register();
+
+            // Get the last logged job
+            var lastJob = jobManager.GetLatestJob();
+
+            // Retrieve all logged job
+            List<Job> rJobs = jobManager.RegisteredJobs;
+
+            // Assert if the last job is scheduled automatically
+            Assert.IsTrue(rJobs.ElementAt(0).Urgency == lastJob.Urgency);
+        }
+
+        [TestMethod]
+        public void TestManualJobScheduleOverride()
+        {
+            ScheduleJobs();
+
+            var lastJob = jobManager.RegisteredJobs.ElementAt(1);
+
+            int lastJobIndex = jobManager.RegisteredJobs.FindIndex(j => j.Urgency == lastJob.Urgency);
+
+            DateTime newDate = lastJob.StartDate.AddDays(-90);
+
+            jobManager.UpdateSchedule(lastJob, newDate);
+
+            int newJobIndex = jobManager.RegisteredJobs.FindIndex(j => j.Urgency == lastJob.Urgency);
+
+            Assert.IsTrue(lastJobIndex != newJobIndex);
+        }
+
+        private void ScheduleJobs()
+        {
+            // Schedule a new job
+            jobManager.Description = "faulty";
+            jobManager.Location = "66 Duckpit Lane, UPSETTLINGTON, TD15 3RS";
+            jobManager.Client = 1;
+            jobManager.Machine = 1;
+            jobManager.Urgency = JobUrgency.UR2;
+            jobManager.Register();
+
+            // Schedule a new job
+            jobManager.Description = "Not working";
+            jobManager.Location = "99  Hendford Hill, MOSELDEN HEIGHT, HD3 6GL";
+            jobManager.Client = 1;
+            jobManager.Machine = 1;
+            jobManager.Urgency = JobUrgency.UR4;
+            jobManager.Register();
         }
 
         private Machine GetTestMachine()

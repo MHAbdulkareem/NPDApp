@@ -76,7 +76,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="controllers\ClientManager.cs" />
-    <Compile Include="controllers\JobScheduler.cs" />
+    <Compile Include="controllers\JobManager.cs" />
     <Compile Include="DataAccess\GenericRepository.cs" />
     <Compile Include="controllers\LoginController.cs" />
     <Compile Include="ClientForm.cs">

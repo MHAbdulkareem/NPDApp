@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 
@@ -10,7 +11,7 @@ namespace NPDApp.DataAccess
     public class NDPAppContext : DbContext
     {
         public NDPAppContext()
-           : base("NDPAppContext")
+           : base("NPDAppContext")
         {
         }
         public DbSet<Client> Clients {get; set;}
@@ -29,6 +30,12 @@ namespace NPDApp.DataAccess
         {
             return base.Set<TEntity>();
         }
+
+        public virtual void SetModified(object entity)
+        {
+            Entry(entity).State = EntityState.Modified;
+        }
+
 
     }
 }
