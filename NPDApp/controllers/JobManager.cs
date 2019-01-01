@@ -1,47 +1,54 @@
-﻿using NPDApp.DataAccess;
+﻿#define TEST
+using NPDApp.DataAccess;
 using NPDApp.models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace NPDApp.controllers
 {
-    public class JobScheduler
+    public class JobManager
     {
-        // 
         RepositoryFactory repoFactory;
         private IRepository<Job> jobRepository;
+        private List<Job> registeredJobs;
         private Job aJob;
 
-        public JobScheduler(NDPAppContext context)
+        public JobManager(NDPAppContext context)
         {
             // Initialise the factory with the givent context
             repoFactory = new RepositoryFactory(context);
             // Get the job repository from the repository factory
             jobRepository = repoFactory.JobRepository;
+            RetrieveRegisteredJobs();
+        }
+
+        private void RetrieveRegisteredJobs()
+        {
+            registeredJobs = (from jobs in jobRepository.Get()
+                             select jobs).ToList();
+            Schedule();
         }
 
         // Return the list of all jobs
-        public List<Job> ScheduledJobs
-        {
-            get { return jobRepository.Get() as List<Job>; }
-        }
+        public List<Job> RegisteredJobs { get { return registeredJobs; } }
 
         // Properties to set up the new job
         public string Description { get; set; }
         public string Location { get; set; }
         public JobUrgency Urgency { get; set; }
-        public Client Client { get; set; }
-        public Machine Machine { get; set; }
+        public int Client { get; set; }
+        public int Machine { get; set; }
 
         // Schedule a new job
-        public void Schedule()
+        public void Register()
         {
             // Make sure the data is not empty
             if (Description.Trim().Length > 0 && Location.Trim().Length > 0)
             {
                 // Make sure the required data is provided
-                if (Client != null && Machine != null)
+                if (Client > 0 && Machine > 0)
                 {
                     // Create a new job
                     aJob = new Job
@@ -50,22 +57,33 @@ namespace NPDApp.controllers
                         Location = Location,
                         LoggedDate = DateTime.Now,
                         Urgency = Urgency,
-                        Client = Client,
-                        Machine = Machine
+                        ClientID = Client,
+                        MachineID = Machine
                     };
 
                     // Estimate the start date based on the urgency
                     ComputeStartDate();
 
                     // Register the job under a client
-                    Client.Jobs.Add(aJob);
+                    jobRepository.Insert(aJob);
+                    repoFactory.Save();
+                    RetrieveRegisteredJobs();
+                    ResetProperties();
+
                     return;
                 }
             }
 
             // Something went wrong
             throw new Exception("The job cannot be registered.");
-            
+        }
+
+        private void ResetProperties()
+        {
+            Description = string.Empty;
+            Location = string.Empty;
+            Client = 0;
+            Machine = 0;
         }
 
         public Job GetLatestJob()
@@ -81,6 +99,12 @@ namespace NPDApp.controllers
 
             // Return latest job
             return aJob;
+        }
+
+        private void Schedule()
+        {
+            if (registeredJobs != null)
+                registeredJobs.Sort(new JobScheduler());
         }
 
         private void ComputeStartDate()
@@ -107,6 +131,37 @@ namespace NPDApp.controllers
                 case JobUrgency.UR5:
                     aJob.StartDate = aJob.LoggedDate.AddDays((int)JobUrgency.UR5);
                     break;
+            }
+        }
+
+        public void UpdateSchedule(Job aJob, DateTime newDate)
+        {
+            var jobToUpdate = jobRepository.SearchFor(j => j.ID == aJob.ID && j.Urgency == aJob.Urgency).First();
+
+            if(jobToUpdate != null)
+            {
+                jobToUpdate.StartDate = newDate;
+            }
+
+            jobRepository.Update(jobToUpdate);
+            Schedule();
+        }
+
+        private class JobScheduler : IComparer<Job>
+        {
+            public int Compare(Job x, Job y)
+            {
+                // Get the days remaining to commence both jobs
+                int xDaysToStart = (x.StartDate - DateTime.Now).Days;
+                int yDaysToStart = (y.StartDate - DateTime.Now).Days;
+
+                // Give priority to the job with the less number of days
+                if (xDaysToStart > yDaysToStart)
+                    return 1;
+                if (xDaysToStart < yDaysToStart)
+                    return -1;
+                else
+                    return 0;
             }
         }
     }

@@ -48,7 +48,7 @@ namespace NPDApp.DataAccess
         public virtual void Update(TEntity tEntity)
         {
             _dbSet.Attach(tEntity);
-            _dbContext.Entry(tEntity).State = EntityState.Modified;
+            _dbContext.SetModified(tEntity);
         }       
     }
 }

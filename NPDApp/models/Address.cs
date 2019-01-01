@@ -11,10 +11,10 @@ namespace NPDApp.models
     {
         [Key]
         public int ID { get; set; }
-        public String NumberOrName { get; set; }
-        public String Street { get; set; }
-        public String Town { get; set; }
-        public String PostCode { get; set; }
+        public string NumberOrName { get; set; }
+        public string Street { get; set; }
+        public string Town { get; set; }
+        public string PostCode { get; set; }
     }
 
 }

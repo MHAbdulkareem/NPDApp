@@ -48,5 +48,10 @@ namespace NPDApp.models
         public virtual Machine Machine { get; set; }
 
         public virtual ICollection<Timeline> Timelines { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id:{ID}, Location:{Location}, Description:{Description}, LoggedDate:{LoggedDate}";
+        }
     }
 }

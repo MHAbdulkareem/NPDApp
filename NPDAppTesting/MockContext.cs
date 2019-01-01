@@ -3,6 +3,7 @@ using NPDApp.DataAccess;
 using NPDApp.models;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace NPDAppTesting
@@ -34,6 +35,8 @@ namespace NPDAppTesting
             // Add the mock DbSets to the context
             mockContext.Setup(c => c.Set<Client>()).Returns(mockClientSet.Object);
             mockContext.Setup(j => j.Set<Job>()).Returns(mockJobSet.Object);
+
+            mockContext.Setup(p => p.SetModified(It.IsAny<object>()));
         }
 
         // Returns a mock of the target context
@@ -53,7 +56,7 @@ namespace NPDAppTesting
             {
                 // Convert the backstore to an IQueryable
                 BackingStore = backStore;
-                var queryable = (this.BackingStore ?? (this.BackingStore = new List<TEntity>())).AsQueryable();
+                var queryable = (BackingStore ?? (BackingStore = new List<TEntity>())).AsQueryable();
 
                 // Setup the mock DbSet with the necessary return types
                 As<IQueryable<TEntity>>().Setup(e => e.Provider).Returns(queryable.Provider);
@@ -64,15 +67,28 @@ namespace NPDAppTesting
                 // Mock the insertion of entities
                 Setup(e => e.Add(It.IsAny<TEntity>())).Returns((TEntity entity) =>
                 {
-                    this.BackingStore.Add(entity);
+                    BackingStore.Add(entity);
 
                     return entity;
+                });
+
+                // Mock the updation of entities
+                Setup(e => e.Attach(It.IsAny<TEntity>())).Returns((TEntity entity) =>
+                {
+                    var e = BackingStore.FirstOrDefault(y => y.ToString().Equals(entity.ToString()));
+                    e = entity;
+                    return e;
                 });
 
                 // Mock the finding of entities
                 Setup(x => x.Find(It.IsAny<object[]>())).Returns<object[]>(x => BackingStore.FirstOrDefault(y => y.GetType().GetProperty("ID").GetValue(y).Equals(x[0])) as TEntity);
 
                 // TODO: Other DbSet members can be mocked, such as Remove().
+            }
+
+            class MockDbEntityEntry : Mock<DbEntityEntry>
+            {
+
             }
 
 
