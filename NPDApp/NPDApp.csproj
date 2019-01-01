@@ -122,6 +122,10 @@
     <Compile Include="Migrations\201812310238237_UpdateTwo.Designer.cs">
       <DependentUpon>201812310238237_UpdateTwo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901011855554_EndDateNullable.cs" />
+    <Compile Include="Migrations\201901011855554_EndDateNullable.Designer.cs">
+      <DependentUpon>201901011855554_EndDateNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\Address.cs" />
     <Compile Include="models\Client.cs" />
@@ -157,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812310238237_UpdateTwo.resx">
       <DependentUpon>201812310238237_UpdateTwo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901011855554_EndDateNullable.resx">
+      <DependentUpon>201901011855554_EndDateNullable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

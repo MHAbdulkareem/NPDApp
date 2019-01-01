@@ -34,7 +34,7 @@ namespace NPDAppTesting
             jobRepository = repoFactory.JobRepository;
 
             // Create a job schedular
-            jobManager = new JobManager(mockContext.Context);
+            jobManager = new JobManager(jobRepository);
         }
 
         [TestMethod]
@@ -126,7 +126,7 @@ namespace NPDAppTesting
                 ID = 1,
                 Name = "Echelon",
                 Manufacturer = "Hammock",
-                Type = MachineType.LHC54
+                Type = MachineType.LHC5
             };
 
             return machine;

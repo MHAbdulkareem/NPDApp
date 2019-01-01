@@ -50,7 +50,7 @@ namespace NPDApp
             }
             else
             {
-                MessageBox.Show("Terms and Conditions not Accepted");
+                MessageBox.Show("Please accept Terms and Conditions.");
             }
             
         }

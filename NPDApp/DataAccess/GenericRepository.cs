@@ -49,6 +49,6 @@ namespace NPDApp.DataAccess
         {
             _dbSet.Attach(tEntity);
             _dbContext.SetModified(tEntity);
-        }       
+        }
     }
 }

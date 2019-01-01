@@ -58,7 +58,7 @@ namespace NPDApp.models
         public DateTime StartDate { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         public JobUrgency Urgency { get; set; }
 

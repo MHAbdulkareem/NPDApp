@@ -55,9 +55,10 @@ namespace NPDApp
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 12);
+            this.label1.Location = new System.Drawing.Point(9, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 29);
+            this.label1.Size = new System.Drawing.Size(145, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Register a new Job";
             // 
@@ -69,44 +70,49 @@ namespace NPDApp
             this.flowLayoutPanel1.Controls.Add(this.clientLocationTxt);
             this.flowLayoutPanel1.Controls.Add(this.label4);
             this.flowLayoutPanel1.Controls.Add(this.faultDescTxt);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(14, 60);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(9, 39);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(442, 362);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(295, 235);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(2, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 29);
+            this.label2.Size = new System.Drawing.Size(98, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Select Client";
             // 
             // clientComboBox
             // 
             this.clientComboBox.FormattingEnabled = true;
-            this.clientComboBox.Location = new System.Drawing.Point(3, 32);
+            this.clientComboBox.Location = new System.Drawing.Point(2, 22);
+            this.clientComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.clientComboBox.Name = "clientComboBox";
-            this.clientComboBox.Size = new System.Drawing.Size(433, 28);
+            this.clientComboBox.Size = new System.Drawing.Size(290, 21);
             this.clientComboBox.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 63);
+            this.label3.Location = new System.Drawing.Point(2, 45);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 29);
+            this.label3.Size = new System.Drawing.Size(114, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Client Location";
             // 
             // clientLocationTxt
             // 
-            this.clientLocationTxt.Location = new System.Drawing.Point(3, 95);
+            this.clientLocationTxt.Location = new System.Drawing.Point(2, 67);
+            this.clientLocationTxt.Margin = new System.Windows.Forms.Padding(2);
             this.clientLocationTxt.Name = "clientLocationTxt";
-            this.clientLocationTxt.Size = new System.Drawing.Size(432, 59);
+            this.clientLocationTxt.Size = new System.Drawing.Size(289, 40);
             this.clientLocationTxt.TabIndex = 6;
             this.clientLocationTxt.Text = "";
             // 
@@ -114,17 +120,19 @@ namespace NPDApp
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 157);
+            this.label4.Location = new System.Drawing.Point(2, 109);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(194, 29);
+            this.label4.Size = new System.Drawing.Size(129, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "Fault Description";
             // 
             // faultDescTxt
             // 
-            this.faultDescTxt.Location = new System.Drawing.Point(3, 189);
+            this.faultDescTxt.Location = new System.Drawing.Point(2, 131);
+            this.faultDescTxt.Margin = new System.Windows.Forms.Padding(2);
             this.faultDescTxt.Name = "faultDescTxt";
-            this.faultDescTxt.Size = new System.Drawing.Size(432, 160);
+            this.faultDescTxt.Size = new System.Drawing.Size(289, 105);
             this.faultDescTxt.TabIndex = 5;
             this.faultDescTxt.Text = "";
             // 
@@ -132,9 +140,10 @@ namespace NPDApp
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 63);
+            this.label5.Location = new System.Drawing.Point(2, 45);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 29);
+            this.label5.Size = new System.Drawing.Size(69, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "Machine";
             // 
@@ -145,82 +154,91 @@ namespace NPDApp
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.machineComboBox);
             this.flowLayoutPanel2.Controls.Add(this.addMachineButton);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(464, 63);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(309, 41);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(436, 359);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(291, 233);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Location = new System.Drawing.Point(2, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 29);
+            this.label6.Size = new System.Drawing.Size(98, 20);
             this.label6.TabIndex = 0;
             this.label6.Text = "Job Urgency";
             // 
             // jobUrgencyComboBox
             // 
-            this.jobUrgencyComboBox.Location = new System.Drawing.Point(3, 32);
+            this.jobUrgencyComboBox.Location = new System.Drawing.Point(2, 22);
+            this.jobUrgencyComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.jobUrgencyComboBox.Name = "jobUrgencyComboBox";
-            this.jobUrgencyComboBox.Size = new System.Drawing.Size(428, 28);
+            this.jobUrgencyComboBox.Size = new System.Drawing.Size(287, 21);
             this.jobUrgencyComboBox.TabIndex = 1;
             // 
             // machineComboBox
             // 
             this.machineComboBox.FormattingEnabled = true;
-            this.machineComboBox.Location = new System.Drawing.Point(3, 95);
+            this.machineComboBox.Location = new System.Drawing.Point(2, 67);
+            this.machineComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.machineComboBox.Name = "machineComboBox";
-            this.machineComboBox.Size = new System.Drawing.Size(367, 28);
+            this.machineComboBox.Size = new System.Drawing.Size(246, 21);
             this.machineComboBox.TabIndex = 8;
             // 
             // addMachineButton
             // 
-            this.addMachineButton.Location = new System.Drawing.Point(376, 95);
+            this.addMachineButton.Location = new System.Drawing.Point(252, 67);
+            this.addMachineButton.Margin = new System.Windows.Forms.Padding(2);
             this.addMachineButton.Name = "addMachineButton";
-            this.addMachineButton.Size = new System.Drawing.Size(56, 34);
+            this.addMachineButton.Size = new System.Drawing.Size(37, 22);
             this.addMachineButton.TabIndex = 9;
             this.addMachineButton.Text = "Add";
             this.addMachineButton.UseVisualStyleBackColor = true;
-            this.addMachineButton.Click += new System.EventHandler(this.addMachineButton_Click);
+            this.addMachineButton.Click += new System.EventHandler(this.AddMachineButton_Click);
             // 
             // submitJobButton
             // 
             this.submitJobButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitJobButton.Location = new System.Drawing.Point(808, 428);
+            this.submitJobButton.Location = new System.Drawing.Point(539, 278);
+            this.submitJobButton.Margin = new System.Windows.Forms.Padding(2);
             this.submitJobButton.Name = "submitJobButton";
-            this.submitJobButton.Size = new System.Drawing.Size(96, 41);
+            this.submitJobButton.Size = new System.Drawing.Size(64, 27);
             this.submitJobButton.TabIndex = 3;
             this.submitJobButton.Text = "Submit";
             this.submitJobButton.UseVisualStyleBackColor = true;
-            this.submitJobButton.Click += new System.EventHandler(this.submitJobButton_Click);
+            this.submitJobButton.Click += new System.EventHandler(this.SubmitJobButton_Click);
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(727, 428);
+            this.resetButton.Location = new System.Drawing.Point(485, 278);
+            this.resetButton.Margin = new System.Windows.Forms.Padding(2);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(75, 41);
+            this.resetButton.Size = new System.Drawing.Size(50, 27);
             this.resetButton.TabIndex = 4;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
             // 
             // JobForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 479);
+            this.ClientSize = new System.Drawing.Size(611, 311);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.submitJobButton);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "JobForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Job - NPD";
             this.Load += new System.EventHandler(this.JobForm_Load);
+            this.Shown += new System.EventHandler(this.JobForm_Shown);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);

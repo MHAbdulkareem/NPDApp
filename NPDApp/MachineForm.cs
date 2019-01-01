@@ -54,7 +54,8 @@ namespace NPDApp
             try
             {
                 AddNewMachine();
-                MessageBox.Show("Record saved.");
+                ClearControls();
+                MessageBox.Show("Record saved.");                
             }
             catch (Exception ex)
             {
@@ -64,7 +65,7 @@ namespace NPDApp
 
         private void AddNewMachine()
         {
-            Machine machine = new Machine()
+            var machine = new Machine()
             {
                 Name = machineNameTextBox.Text,
                 Manufacturer = manufacturerTextBox.Text,
@@ -76,5 +77,38 @@ namespace NPDApp
             repositoryFactory.Save();
         }
 
+        private void txt_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            if (textBox == machineNameTextBox)
+            {
+                Validate(machineNameTextBox);
+            }
+            else if (textBox == manufacturerTextBox)
+            {
+                Validate(manufacturerTextBox);
+            }
+        }
+
+        private void Validate(TextBox textBox)
+        {
+            bool valid = true;
+            if (string.IsNullOrEmpty(textBox.Text))
+            {
+                MessageBox.Show("This field is required.");
+                valid = false;
+            }
+            else if (textBox.Text.Length < 2)
+            {
+                MessageBox.Show("Input is too short.");
+                valid = false;
+            }
+
+            if (!valid)
+            {
+                textBox.Focus();
+            }
+        }
     }
 }

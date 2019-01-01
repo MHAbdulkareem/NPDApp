@@ -10,17 +10,17 @@ namespace NPDApp.controllers
 {
     public class JobManager
     {
-        RepositoryFactory repoFactory;
+        //RepositoryFactory repoFactory;
         private IRepository<Job> jobRepository;
         private List<Job> registeredJobs;
         private Job aJob;
 
-        public JobManager(NDPAppContext context)
+        public JobManager(IRepository<Job> repository)
         {
             // Initialise the factory with the givent context
-            repoFactory = new RepositoryFactory(context);
+            //repoFactory = new RepositoryFactory(context);
             // Get the job repository from the repository factory
-            jobRepository = repoFactory.JobRepository;
+            jobRepository = repository; //repoFactory.JobRepository;
             RetrieveRegisteredJobs();
         }
 
@@ -56,6 +56,7 @@ namespace NPDApp.controllers
                         Description = Description,
                         Location = Location,
                         LoggedDate = DateTime.Now,
+                        EndDate = null,
                         Urgency = Urgency,
                         ClientID = Client,
                         MachineID = Machine
@@ -66,7 +67,7 @@ namespace NPDApp.controllers
 
                     // Register the job under a client
                     jobRepository.Insert(aJob);
-                    repoFactory.Save();
+                    //repoFactory.Save();
                     RetrieveRegisteredJobs();
                     ResetProperties();
 
