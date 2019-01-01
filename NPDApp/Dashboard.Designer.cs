@@ -80,6 +80,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 30);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 
@@ -93,14 +94,14 @@
             // newToolStripMenuItem1
             // 
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(252, 30);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(190, 30);
             this.newToolStripMenuItem1.Text = "New Client";
             this.newToolStripMenuItem1.Click += new System.EventHandler(this.newToolStripMenuItem1_Click);
             // 
             // viewToolStripMenuItem1
             // 
             this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
-            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(252, 30);
+            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(190, 30);
             this.viewToolStripMenuItem1.Text = "View Clients";
             // 
             // jobToolStripMenuItem
@@ -115,14 +116,14 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(174, 30);
             this.newToolStripMenuItem.Text = "New Job";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(174, 30);
             this.viewToolStripMenuItem.Text = "View Jobs";
             // 
             // dataGridView1
@@ -144,6 +145,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard - Newcastle Production Diagnostics";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

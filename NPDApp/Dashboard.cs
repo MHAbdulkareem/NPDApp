@@ -28,5 +28,10 @@ namespace NPDApp
             JobForm jobForm = new JobForm();
             jobForm.ShowDialog(this);
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

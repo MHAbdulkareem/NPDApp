@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,20 @@ namespace NPDApp.models
 {
     public enum MachineType
     {
-        STL0, STC1, MMC2, MHC3, LLC4, LLC5, LHC54
+        [Description("Small, Low Complexity")]
+        STL0,
+        [Description("Complex, Table Top")]
+        STC1,
+        [Description("Medium Size and Complexity")]
+        MMC2,
+        [Description("Medium Size, High Complexity")]
+        MHC3,
+        [Description("Large, Low Complexity")]
+        LLC4,
+        [Description("Large, High Complexity")]
+        LHC5
     }
+
     public class Machine
     {
         public Machine()

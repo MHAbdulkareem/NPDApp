@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -10,8 +11,31 @@ namespace NPDApp.models
 {
     public enum JobUrgency
     {
-        NU0 = 90, NU1 = 40, NU2 = 40, UR2 = 14, UR3 = 7, UR4 = 3, UR5 = 1
+        [Description("Non Urgent ~ 90 Days")]
+        NU0 = 90,
+        [Description("Machine Working ~ 40 Days")]
+        NU1 = 40,
+        [Description("Machine Broken ~ 14 Days")]
+        UR2 = 14,
+        [Description("Machine Broken ~ 7 Days")]
+        UR3 = 7,
+        [Description("Machine Broken ~ 3 Days")]
+        UR4 = 3,
+        [Description("Machine Broken ~ 1 Day")]
+        UR5 = 1
     }
+
+    public enum JobStatus
+    {
+        NEW,
+        PENDING,
+        ACTIVE,
+        INACTIVE,
+        DELAYED,
+        REMOTE_SOLUTION,
+        CLOSED
+    }
+
     public class Job
     {
         public Job()

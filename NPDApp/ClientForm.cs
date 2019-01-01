@@ -68,11 +68,12 @@ namespace NPDApp
                 Email = clientEmailTxt.Text,
                 Name = clientNameTxt.Text,
                 PhoneNumber = clientPhoneTxt.Text
+                //RegistrationDate = DateTime.Now,
+                //Eula = agreeCheckBox.Checked
             };
             var crRepository = repositoryFactory.ClientRepository;
             crRepository.Insert(client);
             repositoryFactory.Save();
-           
         }
 
         private void txt_Leave(object sender, EventArgs e)
