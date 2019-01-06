@@ -8,14 +8,14 @@ using NPDApp.DataAccess;
 
 namespace NPDApp.Controllers
 {
-    public class MachineManager : DataAccessImpl
+    public class MachineManager
     {
-        private GenericRepository<Machine> repository;
+        private IRepository<Machine> repository;
         private List<Machine> registeredMachines;
 
-        public MachineManager()
+        public MachineManager(IRepository<Machine> repository)
         {
-            this.repository = repositoryFactory.MachineRepository;
+            this.repository = repository;
             LoadRegisteredMachines();
         }
 
@@ -36,7 +36,6 @@ namespace NPDApp.Controllers
                 Type = (MachineType)Enum.Parse(typeof(MachineType), machineType)
             };
             repository.Insert(machine);
-            repositoryFactory.Save();
         }
 
         public Machine GetMachine(int ID)

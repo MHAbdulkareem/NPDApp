@@ -16,6 +16,7 @@ namespace NPDApp
     public partial class Dashboard : Form
     {
         JobManager jobManager;
+        JobPresenter presenter;
         public Dashboard()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace NPDApp
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             JobForm jobForm = new JobForm();
+            presenter = new JobPresenter(jobForm);
             jobForm.ShowDialog(this);
         }
 

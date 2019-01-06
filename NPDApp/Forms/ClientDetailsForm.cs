@@ -11,13 +11,13 @@ using NPDApp.controllers;
 
 namespace NPDApp.Forms
 {
-    public partial class ClientDetailsForm : Form
+    public partial class ClientDetailsForm : BaseForm
     {
         private ClientManager clientManager;
 
         public ClientDetailsForm()
         {
-            this.clientManager = new ClientManager();
+            this.clientManager = new ClientManager(repositoryFactory.ClientRepository);
             InitializeComponent();
         }
 
