@@ -75,43 +75,47 @@
     <Compile Include="BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="controllers\ClientManager.cs" />
-    <Compile Include="controllers\JobManager.cs" />
+    <Compile Include="Controllers\ClientManager.cs" />
+    <Compile Include="Controllers\JobManager.cs" />
+    <Compile Include="Controllers\MachineManager.cs" />
     <Compile Include="DataAccess\GenericRepository.cs" />
-    <Compile Include="controllers\LoginController.cs" />
-    <Compile Include="ClientForm.cs">
+    <Compile Include="Forms\ClientDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientForm.Designer.cs">
+    <Compile Include="Forms\ClientDetailsForm.Designer.cs">
+      <DependentUpon>ClientDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.cs">
+    <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
+    <Compile Include="Forms\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\ClientRepository.cs" />
-    <Compile Include="DataAccess\IClientRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
     <Compile Include="DataAccess\NDPAppContext.cs" />
     <Compile Include="DataAccess\RepositoryFactory.cs" />
-    <Compile Include="JobForm.cs">
+    <Compile Include="Forms\JobForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JobForm.Designer.cs">
+    <Compile Include="Forms\JobForm.Designer.cs">
       <DependentUpon>JobForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MachineForm.cs">
+    <Compile Include="Forms\MachineForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MachineForm.Designer.cs">
+    <Compile Include="Forms\MachineForm.Designer.cs">
       <DependentUpon>MachineForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201812202125170_FirstCreate.cs" />
@@ -144,20 +148,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="services\ILoginService.cs" />
-    <EmbeddedResource Include="ClientForm.resx">
+    <EmbeddedResource Include="Forms\ClientDetailsForm.resx">
+      <DependentUpon>ClientDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
+    <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JobForm.resx">
+    <EmbeddedResource Include="Forms\JobForm.resx">
       <DependentUpon>JobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MachineForm.resx">
+    <EmbeddedResource Include="Forms\MachineForm.resx">
       <DependentUpon>MachineForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812202125170_FirstCreate.resx">

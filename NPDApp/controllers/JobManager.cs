@@ -24,7 +24,7 @@ namespace NPDApp.controllers
             RetrieveRegisteredJobs();
         }
 
-        private void RetrieveRegisteredJobs()
+        public void RetrieveRegisteredJobs()
         {
             registeredJobs = (from jobs in jobRepository.Get()
                              select jobs).ToList();
