@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using NPDApp.DataAccess;
 using NPDApp.models;
 using NPDApp.controllers;
+using NPDApp.Forms;
 
 namespace NPDApp
 {
@@ -71,8 +72,6 @@ namespace NPDApp
             var Email = clientEmailTxt.Text;
             var Name = clientNameTxt.Text;
             var PhoneNumber = clientPhoneTxt.Text;
-            //RegistrationDate = DateTime.Now,
-            //Eula = agreeCheckBox.Checked
 
             clientManager.AddClient(Name, Address, PhoneNumber, Email);
             repositoryFactory.Save();

@@ -39,8 +39,6 @@ namespace NPDApp.controllers
             };
 
             repository.Insert(newClient);
-            //repositoryFactory.Save();
-
         }
         public Client GetClient(int id)
         {
