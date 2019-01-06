@@ -72,10 +72,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Controllers\ClientManager.cs" />
+    <Compile Include="Controllers\DataAccessImpl.cs" />
+    <Compile Include="Controllers\IDataAccess.cs" />
     <Compile Include="Controllers\JobManager.cs" />
     <Compile Include="Controllers\MachineManager.cs" />
     <Compile Include="DataAccess\GenericRepository.cs" />

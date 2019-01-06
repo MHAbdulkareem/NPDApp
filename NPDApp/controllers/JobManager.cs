@@ -1,4 +1,5 @@
 ﻿#define TEST
+using NPDApp.Controllers;
 using NPDApp.DataAccess;
 using NPDApp.models;
 using System;
@@ -8,16 +9,16 @@ using System.Linq;
 
 namespace NPDApp.controllers
 {
-    public class JobManager
+    public class JobManager : DataAccessImpl
     {
         private IRepository<Job> jobRepository;
         private List<Job> registeredJobs;
         private Job aJob;
 
-        public JobManager(IRepository<Job> repository)
+        public JobManager()
         {
             // Get the job repository from the repository factory
-            jobRepository = repository; //repoFactory.JobRepository;
+            jobRepository = repositoryFactory.JobRepository;
             RetrieveRegisteredJobs();
         }
 
@@ -37,7 +38,6 @@ namespace NPDApp.controllers
         public JobUrgency Urgency { get; set; }
         public int Client { get; set; }
         public int Machine { get; set; }
-        public string ExtraInformation { get; set; }
 
         // Schedule a new job
         public void Register()
@@ -57,15 +57,17 @@ namespace NPDApp.controllers
                         EndDate = null,
                         Urgency = Urgency,
                         ClientID = Client,
-                        MachineID = Machine,
-                        Status = JobStatus.ESTIMATE_NEEDED
+                        MachineID = Machine
                     };
 
                     // Estimate the start date based on the urgency
                     ComputeStartDate();
 
-                    // Add the new job
+                    // Register the job under a client and save to DB
                     jobRepository.Insert(aJob);
+                    repositoryFactory.Save();
+
+                    //Retrieve updated jobs list and reset scheduling parameters
                     RetrieveRegisteredJobs();
                     ResetProperties();
 
