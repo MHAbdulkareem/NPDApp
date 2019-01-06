@@ -21,6 +21,14 @@ namespace NPDApp.DataAccess
         public DbSet<Timeline> Timelines { get; set; }
         public DbSet<Machine> Machines { get; set; }
 
+        public Address Address
+        {
+            get => default(Address);
+            set
+            {
+            }
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

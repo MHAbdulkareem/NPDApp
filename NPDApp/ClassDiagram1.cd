@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NPDApp.controllers.ClientManager">
+    <Position X="0.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABCAAAEAAAAAAAAAAAAAAAARAACAABAAAA=</HashCode>
+      <FileName>Controllers\ClientManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NPDApp.controllers.JobManager">
+    <Position X="2.5" Y="1.75" Width="2" />
+    <NestedTypes>
+      <Class Name="NPDApp.controllers.JobManager.JobScheduler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\JobManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAABIAAkACAEAAIAAADAAEABAgAAQAAEAAACAAQ=</HashCode>
+      <FileName>Controllers\JobManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NPDApp.Controllers.DataAccessImpl" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAgAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Controllers\DataAccessImpl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NPDApp.Controllers.MachineManager">
+    <Position X="4.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAACQAAAAAAAAAAAgAAAhIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\MachineManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NPDApp.DataAccess.GenericRepository&lt;TEntity&gt;" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAEAAAAAAAABAAAAAIAAAAEEAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>DataAccess\GenericRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.265" Collapsed="true" />
+  </Class>
+  <Class Name="NPDApp.DataAccess.NDPAppContext">
+    <Position X="9.5" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABAASAgAAAABAAAAGAAAAAAECAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>DataAccess\NDPAppContext.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Address" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NPDApp.DataAccess.RepositoryFactory" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgIgAIAAoCAEBIAAAAAAAAAAAAAAAIAAAAAAAAYCAAA=</HashCode>
+      <FileName>DataAccess\RepositoryFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NPDApp.models.Address">
+    <Position X="7" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAgAAAAAAAAgAAAAAAAAAAAAIAgAAAAAA=</HashCode>
+      <FileName>models\Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NPDApp.models.Client">
+    <Position X="12" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAgAAAAEAARAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>models\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NPDApp.models.Job">
+    <Position X="7.25" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAkAAIggAAEAAIABAAgACAAAAAAAAAAAEACIAQ=</HashCode>
+      <FileName>models\Job.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NPDApp.models.Machine">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <AssociationLine Name="MachineType" Type="NPDApp.models.MachineType" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15.75" Y="2.375" />
+        <Point X="16.125" Y="2.375" />
+        <Point X="16.125" Y="1.408" />
+        <Point X="16.75" Y="1.408" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgAAAAEAABAQAAAAAAAAAAwAAAAAAAAA=</HashCode>
+      <FileName>models\Machine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MachineType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NPDApp.models.Staff">
+    <Position X="9.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAgIAAEEAABAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>models\Staff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NPDApp.models.Timeline">
+    <Position X="11.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAkAAAAAAABAAAAAICAAABAAAAAAAAAAA=</HashCode>
+      <FileName>models\Timeline.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="NPDApp.Controllers.IDataAccess">
+    <Position X="2.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\IDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NPDApp.DataAccess.IRepository&lt;T&gt;">
+    <Position X="5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAABAAAAAAAAAAEEAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>DataAccess\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="NPDApp.models.JobUrgency">
+    <Position X="4" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>models\Job.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NPDApp.models.JobStatus">
+    <Position X="2.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoAAAAAAAAAgAAAACAAIAAAgAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>models\Job.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NPDApp.models.MachineType">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQNAAAAAAAAAAAAAAgAABAAAAAAAA=</HashCode>
+      <FileName>models\Machine.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
