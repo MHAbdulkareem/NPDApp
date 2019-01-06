@@ -10,15 +10,12 @@ namespace NPDApp.controllers
 {
     public class JobManager
     {
-        //RepositoryFactory repoFactory;
         private IRepository<Job> jobRepository;
         private List<Job> registeredJobs;
         private Job aJob;
 
         public JobManager(IRepository<Job> repository)
         {
-            // Initialise the factory with the givent context
-            //repoFactory = new RepositoryFactory(context);
             // Get the job repository from the repository factory
             jobRepository = repository; //repoFactory.JobRepository;
             RetrieveRegisteredJobs();

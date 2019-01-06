@@ -10,14 +10,13 @@ namespace NPDApp.controllers
 {
     public class ClientManager
     {
-        private RepositoryFactory repositoryFactory;
-        private GenericRepository<Client> repository;
+        // private RepositoryFactory repositoryFactory;
+        private IRepository<Client> repository;
         private List<Client> registeredClients;
 
-        public ClientManager(RepositoryFactory repositoryFactory)
+        public ClientManager(IRepository<Client> repository)
         {
-            this.repositoryFactory = repositoryFactory;
-            this.repository = repositoryFactory.ClientRepository;
+            this.repository = repository;
             LoadRegisteredClient();
         }
 
@@ -40,7 +39,7 @@ namespace NPDApp.controllers
             };
 
             repository.Insert(newClient);
-            repositoryFactory.Save();
+            //repositoryFactory.Save();
 
         }
         public Client GetClient(int id)

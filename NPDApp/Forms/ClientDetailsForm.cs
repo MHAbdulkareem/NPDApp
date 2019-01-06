@@ -17,7 +17,7 @@ namespace NPDApp.Forms
 
         public ClientDetailsForm()
         {
-            this.clientManager = new ClientManager(repositoryFactory);
+            this.clientManager = new ClientManager(repositoryFactory.ClientRepository);
             InitializeComponent();
         }
 
