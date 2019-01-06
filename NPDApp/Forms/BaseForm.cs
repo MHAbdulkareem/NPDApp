@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace NPDApp.Forms
 {
-    public abstract class BaseForm : Form
+    public class BaseForm : Form
     {
         protected NDPAppContext context;
         protected RepositoryFactory repositoryFactory;
-        protected BaseForm()
+        public BaseForm()
         {
             context = new NDPAppContext();
             repositoryFactory = new RepositoryFactory(context);
