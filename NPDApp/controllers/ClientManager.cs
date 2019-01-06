@@ -10,7 +10,7 @@ namespace NPDApp.controllers
 {
     public class ClientManager
     {
-        // private RepositoryFactory repositoryFactory;
+        
         private IRepository<Client> repository;
         private List<Client> registeredClients;
 

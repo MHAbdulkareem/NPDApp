@@ -74,6 +74,7 @@ namespace NPDApp
             var PhoneNumber = clientPhoneTxt.Text;
 
             clientManager.AddClient(Name, Address, PhoneNumber, Email);
+            repositoryFactory.Save();
         }
 
         private void txt_Leave(object sender, EventArgs e)
