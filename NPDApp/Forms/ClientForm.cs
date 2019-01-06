@@ -18,7 +18,7 @@ namespace NPDApp
     {
         ClientManager clientManager;
 
-        public ClientForm() : base()
+        public ClientForm()
         {
             InitializeComponent();
             clientManager = new ClientManager(repositoryFactory.ClientRepository);
