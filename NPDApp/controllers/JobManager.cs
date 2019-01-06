@@ -9,16 +9,16 @@ using System.Linq;
 
 namespace NPDApp.controllers
 {
-    public class JobManager : DataAccessImpl
+    public class JobManager
     {
         private IRepository<Job> jobRepository;
         private List<Job> registeredJobs;
         private Job aJob;
 
-        public JobManager()
+        public JobManager(IRepository<Job> repository)
         {
             // Get the job repository from the repository factory
-            jobRepository = repositoryFactory.JobRepository;
+            jobRepository = repository;
             RetrieveRegisteredJobs();
         }
 
@@ -65,7 +65,6 @@ namespace NPDApp.controllers
 
                     // Register the job under a client and save to DB
                     jobRepository.Insert(aJob);
-                    repositoryFactory.Save();
 
                     //Retrieve updated jobs list and reset scheduling parameters
                     RetrieveRegisteredJobs();

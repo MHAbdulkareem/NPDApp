@@ -10,17 +10,18 @@ using System.Windows.Forms;
 using NPDApp.DataAccess;
 using NPDApp.models;
 using NPDApp.controllers;
+using NPDApp.Forms;
 
 namespace NPDApp
 {
-    public partial class ClientForm : Form
+    public partial class ClientForm : BaseForm
     {
         ClientManager clientManager;
 
         public ClientForm() : base()
         {
             InitializeComponent();
-            clientManager = new ClientManager();
+            clientManager = new ClientManager(repositoryFactory.ClientRepository);
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
@@ -71,8 +72,6 @@ namespace NPDApp
             var Email = clientEmailTxt.Text;
             var Name = clientNameTxt.Text;
             var PhoneNumber = clientPhoneTxt.Text;
-            //RegistrationDate = DateTime.Now,
-            //Eula = agreeCheckBox.Checked
 
             clientManager.AddClient(Name, Address, PhoneNumber, Email);
         }
