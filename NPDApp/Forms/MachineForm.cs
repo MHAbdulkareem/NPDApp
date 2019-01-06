@@ -73,7 +73,8 @@ namespace NPDApp
             var manufacturer = manufacturerTextBox.Text;
             var type = machineTypeComboBox.SelectedValue.ToString();
 
-            machineManager.AddMachine(machineName, type, manufacturer);            
+            machineManager.AddMachine(machineName, type, manufacturer);
+            repositoryFactory.Save();
         }
 
         private void txt_Leave(object sender, EventArgs e)
