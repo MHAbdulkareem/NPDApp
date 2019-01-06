@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NPDApp.Controllers;
 using NPDApp.models;
 using Exception = System.Exception;
 
@@ -14,9 +15,11 @@ namespace NPDApp
 {
     public partial class MachineForm : BaseForm
     {
+        MachineManager machineManager;
         public MachineForm()
         {
             InitializeComponent();
+            machineManager = new MachineManager(repositoryFactory);
         }
 
         private void MachineForm_Load(object sender, EventArgs e)
@@ -65,16 +68,11 @@ namespace NPDApp
 
         private void AddNewMachine()
         {
-            var machine = new Machine()
-            {
-                Name = machineNameTextBox.Text,
-                Manufacturer = manufacturerTextBox.Text,
-                Type = (MachineType)Enum.Parse(typeof(MachineType), machineTypeComboBox.SelectedValue.ToString())
-            };
-            
-            var machineRepository = repositoryFactory.MachineRepository;
-            machineRepository.Insert(machine);
-            repositoryFactory.Save();
+            var machineName = machineNameTextBox.Text;
+            var manufacturer = manufacturerTextBox.Text;
+            var type = machineTypeComboBox.SelectedValue.ToString();
+
+            machineManager.AddMachine(machineName, type, manufacturer);
         }
 
         private void txt_Leave(object sender, EventArgs e)

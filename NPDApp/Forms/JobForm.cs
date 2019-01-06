@@ -1,4 +1,5 @@
 ﻿using NPDApp.controllers;
+using NPDApp.Controllers;
 using NPDApp.models;
 using System;
 using System.Collections.Generic;
@@ -15,20 +16,22 @@ namespace NPDApp
     public partial class JobForm : BaseForm
     {
         JobManager jobManager;
+        ClientManager clientManager;
+        MachineManager machineManager;
+
         public JobForm() : base()
         {
             InitializeComponent();
+            //Get Job Manager Controller
             jobManager = new JobManager(repositoryFactory.JobRepository);
-        }
-
-        private void JobForm_Load(object sender, EventArgs e)
-        {
-            LoadJobUrgency();
+            //Get client Manager Controller
+            clientManager = new ClientManager(repositoryFactory);
+            //Get Machine Controller
+            machineManager = new MachineManager(repositoryFactory);
         }
 
         private void LoadJobUrgency()
         {
-
             jobUrgencyComboBox.DataSource = Enum.GetValues(typeof(JobUrgency))
             .Cast<Enum>()
             .Select(value => new
@@ -42,13 +45,12 @@ namespace NPDApp
 
             jobUrgencyComboBox.DisplayMember = "Description";
             jobUrgencyComboBox.ValueMember = "Value";
-            
         }
 
         private void LoadClients()
         {
             // Populate client list dropdown from db
-            var clients = repositoryFactory.ClientRepository.Get().ToList();
+            var clients = clientManager.RegisteredClients;
             clientComboBox.DataSource = clients;
             clientComboBox.DisplayMember = "Name";
             clientComboBox.ValueMember = "ID";
@@ -56,8 +58,10 @@ namespace NPDApp
 
         private void LoadMachines()
         {
-            // Populate dropdown control with machine type
-            var machines = repositoryFactory.MachineRepository.Get().ToList();
+            // Populate dropdown control with existing machines
+            machineManager.LoadRegisteredMachines();
+
+            var machines = machineManager.RegisteredMachines;
             machineComboBox.DataSource = machines;
             machineComboBox.DisplayMember = "Name";
             machineComboBox.ValueMember = "ID";        
@@ -67,7 +71,6 @@ namespace NPDApp
         {
             MachineForm machineForm = new MachineForm();
             machineForm.ShowDialog(this);
-            this.LoadMachines();
         }
 
         private void SubmitJobButton_Click(object sender, EventArgs e)
@@ -80,6 +83,7 @@ namespace NPDApp
                     int machineID = (int)machineComboBox.SelectedValue;
                     var description = faultDescTxt.Text;
                     var location = clientLocationTxt.Text;
+
                     // Schedule a new job
                     jobManager.Description = description;
                     jobManager.Location = location;
@@ -129,10 +133,12 @@ namespace NPDApp
             return validated;
         }
 
-        private void JobForm_Shown(object sender, EventArgs e)
+        private void JobForm_Activated(object sender, EventArgs e)
         {
+            // Reload Dropdown values when Form in in-view and active
             LoadClients();
             LoadMachines();
+            LoadJobUrgency();
         }
     }
 }

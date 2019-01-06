@@ -237,8 +237,7 @@ namespace NPDApp
             this.Name = "JobForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Job - NPD";
-            this.Load += new System.EventHandler(this.JobForm_Load);
-            this.Shown += new System.EventHandler(this.JobForm_Shown);
+            this.Activated += new System.EventHandler(this.JobForm_Activated);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);

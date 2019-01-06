@@ -9,14 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NPDApp.DataAccess;
 using NPDApp.models;
+using NPDApp.controllers;
 
 namespace NPDApp
 {
     public partial class ClientForm : BaseForm
     {
+        ClientManager clientManager;
+
         public ClientForm() : base()
         {
             InitializeComponent();
+            clientManager = new ClientManager(repositoryFactory);
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
@@ -62,18 +66,15 @@ namespace NPDApp
 
         private void SaveRecord()
         {
-            Client client = new Client
-            {
-                Address = clientAddressTxt.Text,
-                Email = clientEmailTxt.Text,
-                Name = clientNameTxt.Text,
-                PhoneNumber = clientPhoneTxt.Text
-                //RegistrationDate = DateTime.Now,
-                //Eula = agreeCheckBox.Checked
-            };
-            var crRepository = repositoryFactory.ClientRepository;
-            crRepository.Insert(client);
-            repositoryFactory.Save();
+
+            var Address = clientAddressTxt.Text;
+            var Email = clientEmailTxt.Text;
+            var Name = clientNameTxt.Text;
+            var PhoneNumber = clientPhoneTxt.Text;
+            //RegistrationDate = DateTime.Now,
+            //Eula = agreeCheckBox.Checked
+
+            clientManager.AddClient(Name, Address, PhoneNumber, Email);
         }
 
         private void txt_Leave(object sender, EventArgs e)
