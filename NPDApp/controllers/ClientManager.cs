@@ -10,21 +10,24 @@ namespace NPDApp.controllers
 {
     public class ClientManager
     {
-        private IClientRepository _clientRepository;
+        private RepositoryFactory repositoryFactory;
+        private GenericRepository<Client> repository;
+        private List<Client> registeredClients;
 
-        public ClientManager()
+        public ClientManager(RepositoryFactory repositoryFactory)
         {
-            _clientRepository = new ClientRepository();
-        }
-        public ClientManager(IClientRepository clientRepository)
-        {
-            this._clientRepository = clientRepository;
+            this.repositoryFactory = repositoryFactory;
+            this.repository = repositoryFactory.ClientRepository;
+            LoadRegisteredClient();
         }
 
-        public List<Client> Clients
+        public void LoadRegisteredClient()
         {
-            get { return _clientRepository.GetClients().ToList(); }
+            registeredClients = (from clients in repository.Get()
+                              select clients).ToList();
         }
+
+        public List<Client> RegisteredClients { get { return registeredClients; } }
 
         public void AddClient(string name, string address, string phoneNumber, string email)
         {
@@ -36,19 +39,18 @@ namespace NPDApp.controllers
                 Email = email
             };
 
-            _clientRepository.InsertClient(newClient);
-        }
+            repository.Insert(newClient);
+            repositoryFactory.Save();
 
+        }
         public Client GetClient(int id)
         {
-            var foundClient = _clientRepository.GetClients().Where(c => c.ID == id).FirstOrDefault();
-
+            var foundClient = repository.GetByID(id);
             return foundClient;
         }
-
         public void RemoveClient(Client client)
         {
-            _clientRepository.DeleteClient(client.ID);
+            repository.Delete(client);
         }
     }
 }

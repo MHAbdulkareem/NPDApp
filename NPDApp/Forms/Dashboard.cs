@@ -1,4 +1,5 @@
 ﻿using NPDApp.controllers;
+using NPDApp.Forms;
 using NPDApp.models;
 using System;
 using System.Collections.Generic;
@@ -31,8 +32,6 @@ namespace NPDApp
         {
             JobForm jobForm = new JobForm();
             jobForm.ShowDialog(this);
-            LoadRegisteredJobs();
-
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,34 +39,49 @@ namespace NPDApp
             Application.Exit();
         }
 
-        private void Dashboard_Load(object sender, EventArgs e)
-        {
-            LoadRegisteredJobs();
-        }
-
         private void LoadRegisteredJobs()
         {
+            // Get all registered jobs in DB from JobsController
+            jobManager.RetrieveRegisteredJobs();
             List<GridViewModel> currentJobs = (from jobs in jobManager.RegisteredJobs
                                                select new GridViewModel
                                                {
                                                    ID = jobs.ID,
-                                                   Location = jobs.Location,
+                                                   ClientName = jobs.Client.Name,
+                                                   MachineName = jobs.Machine.Name,
                                                    Description = jobs.Description,
                                                    Date = jobs.StartDate.ToLongDateString(),
                                                    Urgency = jobs.Urgency.ToString(),
 
                                                }).ToList();
 
+            // Set the Datasource of DataGridView as List of Current Jobs
             dataGridView1.DataSource = currentJobs;
+            //Resize the ID Column to 50px
+            DataGridViewColumn column = dataGridView1.Columns[0];
+            column.Width = 50;
         }
 
         class GridViewModel
         {
             public int ID { get; set; }
-            public string Location { get; set; }
+            public string ClientName { get; set; }
+            public string MachineName { get; set; }
             public string Description { get; set; }
             public string Date { get; set; }
             public string Urgency { get; set; }
+        }
+
+        private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClientDetailsForm clientForm = new ClientDetailsForm();
+            clientForm.ShowDialog(this);
+        }
+
+        private void Dashboard_Activated(object sender, EventArgs e)
+        {
+            // Reload Jobs Table values when Form in in-view and active
+            LoadRegisteredJobs();
         }
     }
 }
