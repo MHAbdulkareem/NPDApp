@@ -53,8 +53,8 @@ namespace NPDApp
                                                    MachineName = jobs.Machine.Name,
                                                    Description = jobs.Description,
                                                    Date = jobs.StartDate.ToLongDateString(),
-                                                   Status = jobs.Status.ToString(),
-                                                   Urgency = jobs.Urgency.ToString()
+                                                   Urgency = jobs.Urgency.ToString(),
+
                                                }).ToList();
 
             // Set the Datasource of DataGridView as List of Current Jobs
@@ -62,9 +62,6 @@ namespace NPDApp
             //Resize the ID Column to 50px
             DataGridViewColumn column = dataGridView1.Columns[0];
             column.Width = 50;
-            //Resize the Urgency Column to 60px
-            DataGridViewColumn urgencyColumn = dataGridView1.Columns[6];
-            urgencyColumn.Width = 60;
         }
 
         class GridViewModel
@@ -74,7 +71,6 @@ namespace NPDApp
             public string MachineName { get; set; }
             public string Description { get; set; }
             public string Date { get; set; }
-            public string Status { get; set; }
             public string Urgency { get; set; }
         }
 

@@ -46,13 +46,5 @@ namespace NPDApp.models
         public byte[] RowVersion { get; set; }
 
         public virtual ICollection<Job> Jobs { get; set; }
-
-        public MachineType MachineType
-        {
-            get => default(MachineType);
-            set
-            {
-            }
-        }
     }
 }

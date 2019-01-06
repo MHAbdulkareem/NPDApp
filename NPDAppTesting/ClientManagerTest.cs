@@ -2,7 +2,6 @@
 using NPDApp.DataAccess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using NPDApp.controllers;
 
 namespace NPDAppTesting
 {
@@ -10,21 +9,18 @@ namespace NPDAppTesting
     public class ClientManagerTest : BaseTest
     {
         private IRepository<Client> clientRepository;
-        private ClientManager clientManager;
 
         [TestInitialize]
         public void SetUp()
         {
             base.SetUp();
-            clientManager = new ClientManager();
             clientRepository = repoFactory.ClientRepository;
-
         }
 
         [TestMethod]
         public void TestClientsWithEmptyRepository()
         {
-            Assert.AreNotEqual(0, clientRepository.Get().Count());
+            Assert.AreEqual(0, clientRepository.Get().Count());
         }
 
         [TestMethod]

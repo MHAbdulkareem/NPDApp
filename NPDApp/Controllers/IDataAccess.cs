@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace NPDApp.Controllers
 {
-
     public interface IDataAccess
     {
         void connect();

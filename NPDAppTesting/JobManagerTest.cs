@@ -17,9 +17,7 @@ namespace NPDAppTesting
         private IRepository<Job> jobRepository;
 
         [TestInitialize]
-#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
         public void SetUp()
-#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
             // Populate the context with clients
             MockContext.ClientDataInitialiser = new List<Client>
@@ -37,7 +35,7 @@ namespace NPDAppTesting
             jobRepository = repoFactory.JobRepository;
 
             // Create a job schedular
-            jobManager = new JobManager();
+            jobManager = new JobManager(jobRepository);
         }
 
         [TestMethod]
@@ -50,7 +48,7 @@ namespace NPDAppTesting
             // Schedule a new job
             jobManager.Description = "faulty";
             jobManager.Location = "66 Duckpit Lane, UPSETTLINGTON, TD15 3RS";
-            //jobManager.ExtraInformation = "path/to/machine/schematics";
+            jobManager.ExtraInformation = "path/to/machine/schematics";
             jobManager.Client = client.ID;
             jobManager.Machine = machine.ID;
             jobManager.Urgency = JobUrgency.NU1;
