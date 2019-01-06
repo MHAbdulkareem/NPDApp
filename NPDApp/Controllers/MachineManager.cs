@@ -8,15 +8,13 @@ using NPDApp.DataAccess;
 
 namespace NPDApp.Controllers
 {
-    public class MachineManager
+    public class MachineManager : DataAccessImpl
     {
-        private RepositoryFactory repositoryFactory;
         private GenericRepository<Machine> repository;
         private List<Machine> registeredMachines;
 
-        public MachineManager(RepositoryFactory repositoryFactory)
+        public MachineManager()
         {
-            this.repositoryFactory = repositoryFactory;
             this.repository = repositoryFactory.MachineRepository;
             LoadRegisteredMachines();
         }

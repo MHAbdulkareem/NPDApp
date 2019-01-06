@@ -13,13 +13,13 @@ using Exception = System.Exception;
 
 namespace NPDApp
 {
-    public partial class MachineForm : BaseForm
+    public partial class MachineForm : Form
     {
         MachineManager machineManager;
         public MachineForm()
         {
             InitializeComponent();
-            machineManager = new MachineManager(repositoryFactory);
+            machineManager = new MachineManager();
         }
 
         private void MachineForm_Load(object sender, EventArgs e)
