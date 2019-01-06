@@ -8,18 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NPDApp.Controllers;
+using NPDApp.Forms;
 using NPDApp.models;
 using Exception = System.Exception;
 
 namespace NPDApp
 {
-    public partial class MachineForm : Form
+    public partial class MachineForm : BaseForm
     {
         MachineManager machineManager;
         public MachineForm()
         {
             InitializeComponent();
-            machineManager = new MachineManager();
+            machineManager = new MachineManager(repositoryFactory.MachineRepository);
         }
 
         private void MachineForm_Load(object sender, EventArgs e)

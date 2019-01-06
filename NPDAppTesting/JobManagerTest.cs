@@ -48,7 +48,6 @@ namespace NPDAppTesting
             // Schedule a new job
             jobManager.Description = "faulty";
             jobManager.Location = "66 Duckpit Lane, UPSETTLINGTON, TD15 3RS";
-            jobManager.ExtraInformation = "path/to/machine/schematics";
             jobManager.Client = client.ID;
             jobManager.Machine = machine.ID;
             jobManager.Urgency = JobUrgency.NU1;
