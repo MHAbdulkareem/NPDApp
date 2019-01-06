@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace NPDApp
 {
-    public partial class JobForm : BaseForm
+    public partial class JobForm : Form
     {
         JobManager jobManager;
         ClientManager clientManager;
@@ -23,11 +23,11 @@ namespace NPDApp
         {
             InitializeComponent();
             //Get Job Manager Controller
-            jobManager = new JobManager(repositoryFactory.JobRepository);
+            jobManager = new JobManager();
             //Get client Manager Controller
-            clientManager = new ClientManager(repositoryFactory);
+            clientManager = new ClientManager();
             //Get Machine Controller
-            machineManager = new MachineManager(repositoryFactory);
+            machineManager = new MachineManager();
         }
 
         private void LoadJobUrgency()
@@ -92,7 +92,6 @@ namespace NPDApp
                     jobManager.Urgency = (JobUrgency)Enum.Parse(typeof(JobUrgency), jobUrgencyComboBox.SelectedValue.ToString());
                     jobManager.Register();
 
-                    repositoryFactory.Save();
                     MessageBox.Show("Record saved.");
                     ClearInput();
                 }     

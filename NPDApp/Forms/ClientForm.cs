@@ -13,14 +13,14 @@ using NPDApp.controllers;
 
 namespace NPDApp
 {
-    public partial class ClientForm : BaseForm
+    public partial class ClientForm : Form
     {
         ClientManager clientManager;
 
         public ClientForm() : base()
         {
             InitializeComponent();
-            clientManager = new ClientManager(repositoryFactory);
+            clientManager = new ClientManager();
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
