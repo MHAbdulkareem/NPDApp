@@ -40,6 +40,7 @@ namespace NPDApp.controllers
         public JobUrgency Urgency { get; set; }
         public int Client { get; set; }
         public int Machine { get; set; }
+        public string ExtraInformation { get; set; }
 
         // Schedule a new job
         public void Register()
@@ -59,15 +60,15 @@ namespace NPDApp.controllers
                         EndDate = null,
                         Urgency = Urgency,
                         ClientID = Client,
-                        MachineID = Machine
+                        MachineID = Machine,
+                        Status = JobStatus.ESTIMATE_NEEDED
                     };
 
                     // Estimate the start date based on the urgency
                     ComputeStartDate();
 
-                    // Register the job under a client
+                    // Add the new job
                     jobRepository.Insert(aJob);
-                    //repoFactory.Save();
                     RetrieveRegisteredJobs();
                     ResetProperties();
 

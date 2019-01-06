@@ -27,7 +27,7 @@ namespace NPDApp.models
 
     public enum JobStatus
     {
-        NEW,
+        ESTIMATE_NEEDED,
         PENDING,
         ACTIVE,
         INACTIVE,
@@ -40,7 +40,8 @@ namespace NPDApp.models
     {
         public Job()
         {
-            this.Timelines = new List<Timeline>();
+            Timelines = new List<Timeline>();
+            Staff = new List<Staff >();
         }
         [Key]
         public int ID { get; set; }
@@ -62,6 +63,11 @@ namespace NPDApp.models
 
         public JobUrgency Urgency { get; set; }
 
+        public JobStatus Status { get; set; }
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         public int ClientID { get; set; }
         [ForeignKey("ClientID")]
         public virtual Client Client { get; set; }
@@ -71,6 +77,8 @@ namespace NPDApp.models
         public virtual Machine Machine { get; set; }
 
         public virtual ICollection<Timeline> Timelines { get; set; }
+
+        public virtual ICollection<Staff> Staff { get; set; }
 
         public override string ToString()
         {

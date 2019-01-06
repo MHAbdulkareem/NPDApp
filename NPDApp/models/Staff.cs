@@ -9,6 +9,10 @@ namespace NPDApp.models
 {
     public class Staff
     {
+        public Staff()
+        {
+            Jobs = new List<Job>();
+        }
         [Key]
         public int ID { get; set; }
         
@@ -21,9 +25,14 @@ namespace NPDApp.models
         [Required, StringLength(50, MinimumLength = 1)]
         public string Role { get; set; }
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         public string FullName
         {
             get { return FirstName + " " + LastName; }
         }
+
+        public virtual ICollection<Job> Jobs { get; set; }
     }
 }

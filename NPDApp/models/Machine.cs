@@ -42,6 +42,9 @@ namespace NPDApp.models
         [Required]
         public string Manufacturer { get; set; }
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         public virtual ICollection<Job> Jobs { get; set; }
     }
 }

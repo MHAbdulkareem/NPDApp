@@ -5,6 +5,7 @@ using NPDApp.DataAccess;
 using NPDApp.controllers;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity.Infrastructure;
 
 namespace NPDAppTesting
 {
@@ -47,6 +48,7 @@ namespace NPDAppTesting
             // Schedule a new job
             jobManager.Description = "faulty";
             jobManager.Location = "66 Duckpit Lane, UPSETTLINGTON, TD15 3RS";
+            jobManager.ExtraInformation = "path/to/machine/schematics";
             jobManager.Client = client.ID;
             jobManager.Machine = machine.ID;
             jobManager.Urgency = JobUrgency.NU1;
@@ -57,6 +59,7 @@ namespace NPDAppTesting
 
             // Check if job is registerd to client
             Assert.AreEqual(client.ID, loggedJob.ClientID);
+        
         }
 
         [TestMethod]

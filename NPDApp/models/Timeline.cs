@@ -19,6 +19,9 @@ namespace NPDApp.models
 
         public string Outcome { get; set; }
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         [ForeignKey("JobID")]
         public virtual Job Job { get; set; }
     }
