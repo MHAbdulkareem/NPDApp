@@ -13,13 +13,13 @@ using Exception = System.Exception;
 
 namespace NPDApp
 {
-    public partial class MachineForm : BaseForm
+    public partial class MachineForm : Form
     {
         MachineManager machineManager;
-        public MachineForm() : base()
+        public MachineForm()
         {
             InitializeComponent();
-            machineManager = new MachineManager(repositoryFactory.MachineRepository);
+            machineManager = new MachineManager();
         }
 
         private void MachineForm_Load(object sender, EventArgs e)
@@ -72,8 +72,7 @@ namespace NPDApp
             var manufacturer = manufacturerTextBox.Text;
             var type = machineTypeComboBox.SelectedValue.ToString();
 
-            machineManager.AddMachine(machineName, type, manufacturer);
-            repositoryFactory.Save();
+            machineManager.AddMachine(machineName, type, manufacturer);            
         }
 
         private void txt_Leave(object sender, EventArgs e)

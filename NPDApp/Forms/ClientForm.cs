@@ -13,14 +13,14 @@ using NPDApp.controllers;
 
 namespace NPDApp
 {
-    public partial class ClientForm : BaseForm
+    public partial class ClientForm : Form
     {
         ClientManager clientManager;
 
         public ClientForm() : base()
         {
             InitializeComponent();
-            clientManager = new ClientManager(repositoryFactory.ClientRepository);
+            clientManager = new ClientManager();
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
@@ -75,7 +75,6 @@ namespace NPDApp
             //Eula = agreeCheckBox.Checked
 
             clientManager.AddClient(Name, Address, PhoneNumber, Email);
-            repositoryFactory.Save();
         }
 
         private void txt_Leave(object sender, EventArgs e)

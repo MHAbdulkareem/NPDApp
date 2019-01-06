@@ -24,9 +24,9 @@ namespace NPDApp.Forms
         {
             context = new NDPAppContext();
             repositoryFactory = new RepositoryFactory(context);
-            jobManager = new JobManager(repositoryFactory.JobRepository);
-            clientManager = new ClientManager(repositoryFactory.ClientRepository);
-            machineManager = new MachineManager(repositoryFactory.MachineRepository);
+            jobManager = new JobManager();
+            clientManager = new ClientManager();
+            machineManager = new MachineManager();
 
             this.screen = screen;
             screen.Register(this);

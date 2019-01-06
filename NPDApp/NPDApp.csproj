@@ -135,6 +135,10 @@
     <Compile Include="Migrations\201901061234060_Added_Status_n_Timestamp_Columns.Designer.cs">
       <DependentUpon>201901061234060_Added_Status_n_Timestamp_Columns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901061827595_refactor-reverse.cs" />
+    <Compile Include="Migrations\201901061827595_refactor-reverse.Designer.cs">
+      <DependentUpon>201901061827595_refactor-reverse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\Address.cs" />
     <Compile Include="models\Client.cs" />
@@ -178,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901061234060_Added_Status_n_Timestamp_Columns.resx">
       <DependentUpon>201901061234060_Added_Status_n_Timestamp_Columns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901061827595_refactor-reverse.resx">
+      <DependentUpon>201901061827595_refactor-reverse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
