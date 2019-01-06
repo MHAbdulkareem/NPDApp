@@ -1,5 +1,4 @@
-﻿using NPDApp.Controllers;
-using NPDApp.DataAccess;
+﻿using NPDApp.DataAccess;
 using NPDApp.models;
 using System;
 using System.Collections.Generic;
@@ -9,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace NPDApp.controllers
 {
-    public class ClientManager : DataAccessImpl
+    public class ClientManager
     {
-        
+        // private RepositoryFactory repositoryFactory;
         private IRepository<Client> repository;
         private List<Client> registeredClients;
 
-        public ClientManager()
+        public ClientManager(IRepository<Client> repository)
         {
-            this.repository = repositoryFactory.ClientRepository;
+            this.repository = repository;
             LoadRegisteredClient();
         }
 
@@ -40,8 +39,6 @@ namespace NPDApp.controllers
             };
 
             repository.Insert(newClient);
-            repositoryFactory.Save();
-
         }
         public Client GetClient(int id)
         {

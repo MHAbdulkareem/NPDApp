@@ -13,14 +13,14 @@ using System.Windows.Forms;
 
 namespace NPDApp
 {
-    public partial class Dashboard : Form
+    public partial class Dashboard : BaseForm
     {
         JobManager jobManager;
         JobPresenter presenter;
-        public Dashboard()
+        public Dashboard() : base()
         {
             InitializeComponent();
-            jobManager = new JobManager();
+            jobManager = new JobManager(repositoryFactory.JobRepository);
         }
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)

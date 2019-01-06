@@ -78,6 +78,9 @@
     <Compile Include="Controllers\JobManager.cs" />
     <Compile Include="Controllers\MachineManager.cs" />
     <Compile Include="DataAccess\GenericRepository.cs" />
+    <Compile Include="Forms\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ClientDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
