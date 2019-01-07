@@ -5,7 +5,11 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
-
+/*
+ * TEAM MEMBERS
+ * AMINU ABDULMALIK (16040781)
+ * MUHAMMAD HUSSAINI (17045588)
+ */
 namespace NPDApp.DataAccess
 {
     public class NDPAppContext : DbContext

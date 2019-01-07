@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using NPDApp.models;
 using NPDApp.DataAccess;
-
+/*
+ * TEAM MEMBERS
+ * AMINU ABDULMALIK (16040781)
+ * MUHAMMAD HUSSAINI (17045588)
+ */
 namespace NPDApp.Controllers
 {
     public class MachineManager

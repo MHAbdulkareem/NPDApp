@@ -6,7 +6,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+/*
+ * TEAM MEMBERS
+ * AMINU ABDULMALIK (16040781)
+ * MUHAMMAD HUSSAINI (17045588)
+ */
 namespace NPDApp.controllers
 {
     public class JobManager
